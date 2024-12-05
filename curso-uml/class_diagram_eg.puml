@@ -1,0 +1,32 @@
+@startuml class diagram
+
+class Leilao{
+    - produto : String
+    - preco : float
+    - data_limit : Date
+    - dono : String
+    - lances : List[] Lance
+}
+
+class Usuario{
+    - nome : String
+    - email : String
+    + darLance(Leilao leilao, float valor)
+}
+
+class Lance{
+    - licitante : Usuario
+    - leilao : Leilao
+    - valor : float
+}
+
+class Job{
+    + fecharLeilao()
+}
+
+Leilao -l- Usuario
+Leilao -u- Lance
+Usuario -r- Lance
+Leilao -r- Job
+
+@enduml

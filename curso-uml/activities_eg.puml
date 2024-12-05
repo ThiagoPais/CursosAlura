@@ -1,0 +1,19 @@
+@startuml activity diagram
+
+
+start
+:Escolhe produto;
+repeat :Dar lance;
+repeat while (Satisfeito?) is (não)
+-> sim;
+:Espera leilão aabar;
+if (Teve maior lance?) then (sim)
+    :Recebe notificação
+    que ganhou!;
+else (não)
+    :Recebe notificação
+    que não ganhou;
+endif
+stop
+
+@enduml

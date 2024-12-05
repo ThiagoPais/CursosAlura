@@ -1,0 +1,29 @@
+/' Um leilão começa como aberto.
+
+Se o leiloeiro pausá-lo, então ele vira suspenso.
+
+Se o leiloeiro reiniciá-lo, ele volta a ser aberto.
+
+Se passou a data limite, ele é encerrado.
+
+Se ele está pausado e o leiloeiro desistiu, ele é encerrado.
+
+Encerrado é o estado final. '/
+
+@startuml state diagram
+
+[*] --> Estado1 : Inicia leilão
+Estado1 : Leilão aberto
+
+Estado1 --> Estado2 : Leiloeiro pausou leilão
+Estado2 : Leilão suspenso
+
+Estado2 -> Estado1 : Leiloeiro reiniciou leilão
+
+Estado1 --> Estado3 : Passou da data limite ou \nLeiloeiro desistiu do leilão
+Estado2 --> Estado3 : Passou da data limite ou \nLeiloeiro desistiu do leilão
+
+Estado3 : Leilão encerrado
+Estado3 --> [*]
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml sql diagram
+
+actor Usuário as user
+participant Site as site
+participant Lance as web <<Web Service>>
+
+user -> site : Seleciona produto
+site -> user : Mostra produto
+user -> site : dá lance
+site -> web : Envia lance
+web -> site : ok
+site -> user : ok
+web -> user : manda e-mail de confirmação
+
+@enduml

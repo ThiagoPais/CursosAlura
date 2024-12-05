@@ -1,0 +1,35 @@
+@startuml usecase
+
+skinparam actorStyle awesome
+
+left to right direction
+'actors
+:leiloeiro: as lei
+:usuário: as usu
+
+'use cases
+package Leiloeiro{
+    (Criar leilão) as CL
+    (Finalizar leilão) as FL
+}
+package Usuário{
+    (Dar lance) as DL
+    (Pagar) as PG
+    (Ganhar) as GN
+    (Cartão) as CT
+    (Boleto) as BL
+}
+
+'connections
+lei -> CL
+lei --> FL
+
+usu -> DL
+usu -> PG
+PG <|-down- CT : extends
+PG <|-d- BL : extends
+usu --> GN
+
+DL ..> CL : <<depends>>
+
+@enduml

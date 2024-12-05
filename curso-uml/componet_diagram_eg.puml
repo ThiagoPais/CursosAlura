@@ -1,0 +1,13 @@
+@startuml component diagram
+
+[Aplicação web] as AW
+[Batch jobs] as BJ
+database MySQL
+
+AW -> BJ : .txt
+AW -> MySQL
+BJ --> MySQL
+
+
+
+@enduml
