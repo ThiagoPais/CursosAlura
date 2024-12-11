@@ -1,0 +1,58 @@
+@startuml Class diagram
+
+class gato{
+    - nome: String
+    - sexo: String
+    - idade: int
+    - pelagem: String
+    - castrado: boolean
+    - vacinado: boolean
+    - vermifugado: boolean
+    + miar()
+    + comer()
+    + dormir()
+    + limpar()
+    + arranhar()
+    + brincar()
+    + brincarComBolinha()
+    + brincarComLaser()
+    + brincarComFita()
+}
+
+' class Pessoa{
+'     - nome: String
+'     - email: String
+'     - nascimento: Date
+'     - funcao: String
+'     - ativo: boolean
+'     + Pessoa()
+'     + mostrarInfo()
+' }
+
+' class Diretor{
+'     + Diretor()
+'     + criarCurso()
+'     + excluirCurso()
+' }
+
+' class Professor{
+'     + Professor()
+'     + darNota()
+'     + aprovarAluno()
+'     + reprovarAluno()
+'     + fazerAlunoChorar()
+' }
+
+' class Aluno{
+'     - matricula: int
+'     + Aluno()
+'     + estudar()
+'     + fazerProva()
+'     + chorar()
+' }
+
+' Pessoa <|-- Diretor
+' Pessoa <|-- Professor
+' Pessoa <|-- Aluno
+
+@enduml
