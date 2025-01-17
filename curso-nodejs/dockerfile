@@ -1,0 +1,5 @@
+FROM docker.binarios.intranet.bb.com.br/ubi9/nodejs-20
+
+COPY . .
+
+CMD ["npm", "run", "dev"]
