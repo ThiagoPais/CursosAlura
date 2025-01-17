@@ -31,6 +31,7 @@ app.get("/books", (req, res) => {
 });
 
 app.post("/books", (req, res) => {
+    console.log("Requisição recebida");
     books.push(req.body);
     res.status(201).send("Registro feito com sucesso!");
 });
@@ -38,6 +39,20 @@ app.post("/books", (req, res) => {
 app.get("/books/:id", (req, res) => {
     const index = findBook(req.params.id);
     res.status(200).json(books[index]);
+})
+
+app.put("/books/:id", (req, res) => {
+    console.log("Requisição recebida");
+    const index = findBook(req.params.id);
+    books[index].title = req.body.title;
+    res.status(200).json(books[index]);
+})
+
+app.delete("/books/:id", (req, res) => {
+    console.log("Requisição recebida");
+    const index = findBook(req.params.id);
+    books.splice(index, 1);
+    res.status(200).send("Livro removido com sucesso!");
 })
 
 export default app;
