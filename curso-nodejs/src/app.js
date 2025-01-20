@@ -1,22 +1,13 @@
 import express from "express";
 import connectToDatabase from "./config/dbConnect.js";
+import book from "./models/Book.js";
 
 const app = express();
 app.use(express.json());
 
-async function initializeDatabase() {
-    const connection = await connectToDatabase();
-    connection.on("error", (error) => {
-        console.log("Erro ao conectar ao banco de dados: " + error);
-    });
-    connection.once("open", () => {
-        console.log("Conexão com o banco de dados realizada com sucesso!");
-    });
-}
+const connection = await connectToDatabase();
 
-initializeDatabase();
-
-const books = [
+/* const books = [
     {
         id: 1,
         title: "Rangers"
@@ -33,7 +24,7 @@ const books = [
 
 function findBook(id){
     return books.findIndex(book => book.id === parseInt(id));
-}
+} */
 
 app.get("/", (req, res) => {
     res.status(200).send("Curso de Node.js");
