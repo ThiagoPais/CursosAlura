@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 
 async function connectToDatabase() {
     const MONGODB_PORT = 27017;
-    const MONGOBD_NAME = "/book-store-alura"
-    const MONGODB_HOST = "mongodb://127.0.0.1:" + MONGODB_PORT + MONGOBD_NAME;
+    const MONGODB_NAME = "/book-store-alura"
+    const MONGODB_HOST = "mongodb://admin:admin123@127.0.0.1:" + MONGODB_PORT + MONGODB_NAME + "?authSource=admin";
 
     if (mongoose.connection.readyState === 1) {
         return;
