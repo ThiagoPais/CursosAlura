@@ -12,22 +12,3 @@ const bookSchema = new mongoose.Schema({
 const book = mongoose.model("books", bookSchema);
 
 export default book;
-
-/* const books = [
-    {
-        id: 1,
-        title: "Rangers"
-    },
-    {
-        id: 2,
-        title: "Harry Potter"
-    },
-    {
-        id: 3,
-        title: "Lord of the Rings"
-    }
-]
-
-function findBook(id){
-    return books.findIndex(book => book.id === parseInt(id));
-} */
