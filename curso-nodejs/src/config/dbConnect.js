@@ -4,7 +4,7 @@ async function connectToDatabase() {
     if (mongoose.connection.readyState === 1) {
         return;
     }
-    
+
     try {
         await mongoose.connect(process.env.MONGODB_HOST);
         console.log("Conexão com o banco de dados realizada com sucesso!");
