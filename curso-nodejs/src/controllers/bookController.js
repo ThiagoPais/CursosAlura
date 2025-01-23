@@ -54,7 +54,7 @@ class BookController {
     }
 
     static async getBooksByPublisher(req, res) {
-        const publisher = req.params.publisher;
+        const publisher = req.query.publisher;
         try {
             const bookList = await book.find({ publisher: publisher });
             res.status(200).json(bookList);
