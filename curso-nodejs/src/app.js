@@ -1,17 +1,12 @@
 import express from "express";
 import connectToDatabase from "./config/dbConnect.js";
 import routes from "./routes/index.js";
-
-const app = express();
-routes(app);
+import errorHandler from "./middlewares/errorHandler.js";
 
 const connection = await connectToDatabase();
 
-app.delete("/books/:id", (req, res) => {
-    console.log("Requisição recebida");
-    const index = findBook(req.params.id);
-    books.splice(index, 1);
-    res.status(200).send("Livro removido com sucesso!");
-});
+const app = express();
+app.use(errorHandler);
+routes(app);
 
 export default app;
