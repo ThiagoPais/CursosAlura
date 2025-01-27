@@ -6,7 +6,7 @@ import errorHandler from "./middlewares/errorHandler.js";
 const connection = await connectToDatabase();
 
 const app = express();
-app.use(errorHandler);
 routes(app);
+app.use(errorHandler);
 
 export default app;

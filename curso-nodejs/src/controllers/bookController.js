@@ -1,5 +1,6 @@
 import book from "../models/Book.js";
 import { author } from "../models/Author.js";
+import NoAuthorError from "../errors/NoAuthorError.js";
 
 class BookController {
     static async getBooks(req, res, next) {
@@ -24,6 +25,9 @@ class BookController {
     static async postBook(req, res, next) {
         const bookInfo = req.body;
         try {
+            if (bookInfo.author === undefined) {
+                throw new NoAuthorError("O autor do livro é obrigatório", 400);
+            }
             const authorFound = await author.findById(bookInfo.author);
             const bookComposed = { ...bookInfo, author: { ...authorFound._doc } };
             const newBook = await book.create(bookComposed);
