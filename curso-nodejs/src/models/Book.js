@@ -17,7 +17,9 @@ const bookSchema = new mongoose.Schema({
     },
     pages: {
         type: Number,
-        required: [true, "O número de páginas do livro é obrigatório"]
+        required: [true, "O número de páginas do livro é obrigatório"],
+        min: [1, "O livro deve ter no mínimo 1 página"],
+        max: [3000, "O livro deve ter no máximo 3000 páginas"]
     },
     price: { type: Number }
 }, { versionKey: false });
