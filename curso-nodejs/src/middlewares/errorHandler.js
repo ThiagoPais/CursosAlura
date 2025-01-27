@@ -19,6 +19,7 @@ function errorHandler(error, req, res, next) {
         res.status(400).json({ message: error.message });
         return;
     }
+    console.log(error);
     res.status(500).json({ message: "Falha ao processar requisição - Erro no servidor" });
 }
 
